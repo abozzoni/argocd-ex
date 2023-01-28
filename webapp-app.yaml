@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: webapp
+  name: webapp-prod
   # You'll usually want to add your resources to the argocd namespace.
   namespace: openshift-gitops
 spec:
@@ -10,9 +10,12 @@ spec:
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/abozzoni/kustomize-bs.git # Can point to either a Helm chart repo or a git repo.
-    targetRevision: HEAD  # For Helm, this refers to the chart version.
-    path: webapp/overlays/production # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.
+    # Can point to either a Helm chart repo or a git repo.
+    repoURL: https://github.com/abozzoni/kustomize-bs.git 
+    # For Helm, this refers to the chart version.
+    targetRevision: HEAD
+    # This has no meaning for Helm charts pulled directly from a Helm repo instead of git.  
+    path: webapp/overlays/production 
 
   # Destination cluster and namespace to deploy the application
   destination:
