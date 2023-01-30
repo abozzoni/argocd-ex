@@ -7,7 +7,7 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: in-cluster
+      - cluster: default  
         url: https://kubernetes.default.svc
   template:
     metadata:
